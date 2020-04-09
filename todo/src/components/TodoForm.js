@@ -18,9 +18,11 @@ const TodoForm = () => {
 
     //state for text being input before submition
     const [newItem, setNewItem] = useState('')
+
     const submitHandler = e => {
         e.preventDefault()
         dispatch({type: 'add_item', payload: newItem})
+        setNewItem('')
     }
     const changeHandler = e => {
         setNewItem(e.target.value)
@@ -37,7 +39,7 @@ console.log('state.list: ', state.list)
                 />
                 <button type='submit'>Add</button>
                 <br/>
-                <button type='button'>Clear Completed</button>
+                <button type='button' onClick={() => dispatch({type: 'clear_completed'})}>Clear Completed</button>
             </form>
         
             <div className='TodoList'>

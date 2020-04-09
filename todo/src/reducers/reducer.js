@@ -24,6 +24,13 @@ const reducer = (state, action) => {
                         return item;
                     })
             }
+        case 'clear_completed':
+            return {
+                ...state,
+                list: state.list.filter( item => {
+                    return item.completed == false
+                })
+            }
         default:
             return state
     }
